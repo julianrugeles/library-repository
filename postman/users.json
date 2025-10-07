@@ -1,0 +1,112 @@
+{
+  "info": {
+    "name": "User Service - Biblioteca Universitaria",
+    "_postman_id": "a2b4a930-b07f-4a2a-a52a-b5bfe29c11a1",
+    "description": "Colección Postman para probar el microservicio de usuarios en Flask + PostgreSQL",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Obtener todos los usuarios",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:13000/users",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "13000",
+          "path": ["users"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Crear usuario",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Laura Torres\",\n  \"email\": \"laura@correo.com\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:13000/users",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "13000",
+          "path": ["users"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Obtener usuario por ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:13000/users/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "13000",
+          "path": ["users", "1"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Actualizar usuario",
+      "request": {
+        "method": "PUT",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Laura T. Torres\",\n  \"email\": \"laura_t@correo.com\",\n  \"active\": true,\n  \"sanctions\": 1\n}"
+        },
+        "url": {
+          "raw": "http://localhost:13000/users/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "13000",
+          "path": ["users", "1"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Agregar sanción a usuario",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:13000/users/1/sanction",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "13000",
+          "path": ["users", "1", "sanction"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Eliminar usuario",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:13000/users/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "13000",
+          "path": ["users", "1"]
+        }
+      },
+      "response": []
+    }
+  ]
+}

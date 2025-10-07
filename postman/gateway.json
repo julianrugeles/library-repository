@@ -1,0 +1,151 @@
+{
+  "info": {
+    "name": "📚 Library System - API Gateway",
+    "_postman_id": "c0e9e41a-1d90-4d84-9a6e-bb101a6c2a7d",
+    "description": "Colección de pruebas para los servicios de biblioteca (usuarios, equipos, préstamos) a través del gateway Flask.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "🧍 Usuarios",
+      "item": [
+        {
+          "name": "Listar usuarios",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "http://localhost:13005/api/users", "protocol": "http", "host": ["localhost"], "port": "13005", "path": ["api", "users"] }
+          }
+        },
+        {
+          "name": "Crear usuario",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Carlos López\",\n  \"email\": \"carlos@example.com\"\n}"
+            },
+            "url": { "raw": "http://localhost:13005/api/users", "protocol": "http", "host": ["localhost"], "port": "13005", "path": ["api", "users"] }
+          }
+        },
+        {
+          "name": "Obtener usuario por ID",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "http://localhost:13005/api/users/1", "protocol": "http", "host": ["localhost"], "port": "13005", "path": ["api", "users", "1"] }
+          }
+        },
+        {
+          "name": "Actualizar usuario",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"name\": \"Carlos López Actualizado\",\n  \"email\": \"carlos.l@example.com\",\n  \"active\": true\n}" },
+            "url": { "raw": "http://localhost:13005/api/users/1", "protocol": "http", "host": ["localhost"], "port": "13005", "path": ["api", "users", "1"] }
+          }
+        },
+        {
+          "name": "Eliminar usuario",
+          "request": {
+            "method": "DELETE",
+            "url": { "raw": "http://localhost:13005/api/users/1", "protocol": "http", "host": ["localhost"], "port": "13005", "path": ["api", "users", "1"] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "💻 Equipos",
+      "item": [
+        {
+          "name": "Listar equipos",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "http://localhost:13005/api/equipment", "protocol": "http", "host": ["localhost"], "port": "13005", "path": ["api", "equipment"] }
+          }
+        },
+        {
+          "name": "Crear equipo",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"name\": \"Microscopio Olympus\",\n  \"type\": \"Laboratorio\",\n  \"available\": true\n}" },
+            "url": { "raw": "http://localhost:13005/api/equipment", "protocol": "http", "host": ["localhost"], "port": "13005", "path": ["api", "equipment"] }
+          }
+        },
+        {
+          "name": "Obtener equipo por ID",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "http://localhost:13005/api/equipment/1", "protocol": "http", "host": ["localhost"], "port": "13005", "path": ["api", "equipment", "1"] }
+          }
+        },
+        {
+          "name": "Actualizar equipo",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"name\": \"Microscopio Olympus X2\",\n  \"type\": \"Laboratorio\",\n  \"available\": false\n}" },
+            "url": { "raw": "http://localhost:13005/api/equipment/1", "protocol": "http", "host": ["localhost"], "port": "13005", "path": ["api", "equipment", "1"] }
+          }
+        },
+        {
+          "name": "Eliminar equipo",
+          "request": {
+            "method": "DELETE",
+            "url": { "raw": "http://localhost:13005/api/equipment/1", "protocol": "http", "host": ["localhost"], "port": "13005", "path": ["api", "equipment", "1"] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "📦 Préstamos",
+      "item": [
+        {
+          "name": "Listar préstamos",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "http://localhost:13005/api/loans", "protocol": "http", "host": ["localhost"], "port": "13005", "path": ["api", "loans"] }
+          }
+        },
+        {
+          "name": "Registrar préstamo",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user_id\": 1,\n  \"equipment_id\": 1,\n  \"loan_date\": \"2025-10-06\",\n  \"return_date\": null\n}"
+            },
+            "url": { "raw": "http://localhost:13005/api/loans", "protocol": "http", "host": ["localhost"], "port": "13005", "path": ["api", "loans"] }
+          }
+        },
+        {
+          "name": "Obtener préstamo por ID",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "http://localhost:13005/api/loans/1", "protocol": "http", "host": ["localhost"], "port": "13005", "path": ["api", "loans", "1"] }
+          }
+        },
+        {
+          "name": "Actualizar préstamo (devolución)",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"return_date\": \"2025-10-10\"\n}"
+            },
+            "url": { "raw": "http://localhost:13005/api/loans/1", "protocol": "http", "host": ["localhost"], "port": "13005", "path": ["api", "loans", "1"] }
+          }
+        },
+        {
+          "name": "Eliminar préstamo",
+          "request": {
+            "method": "DELETE",
+            "url": { "raw": "http://localhost:13005/api/loans/1", "protocol": "http", "host": ["localhost"], "port": "13005", "path": ["api", "loans", "1"] }
+          }
+        }
+      ]
+    }
+  ]
+}

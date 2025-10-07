@@ -1,0 +1,72 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: postgres_users
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: userdb
+      POSTGRES_PASSWORD: secret123
+      POSTGRES_DB: poli
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "13001:5432"
+
+  user-service:
+    build: ./user-service
+    container_name: user_service
+    restart: unless-stopped
+    ports:
+      - "13000:13000"
+    environment:
+      FLASK_ENV: production
+      DATABASE_URL: postgresql://userdb:secret123@postgres:5432/poli
+    depends_on:
+      - postgres
+    volumes:
+      - ./user-service:/app
+
+  equipment-service:
+    build: ./equipment-service
+    container_name: equipment_service
+    restart: unless-stopped
+    ports:
+      - "13002:13002"
+    environment:
+      FLASK_ENV: production
+      DATABASE_URL: postgresql://userdb:secret123@postgres:5432/poli
+    depends_on:
+      - postgres
+    volumes:
+      - ./equipment-service:/app
+
+  loan-service:
+    build: ./loan-service
+    container_name: loan_service
+    restart: unless-stopped
+    ports:
+      - "13003:13003"
+    environment:
+      FLASK_ENV: production
+      DATABASE_URL: postgresql://userdb:secret123@postgres:5432/poli
+    depends_on:
+      - postgres
+    volumes:
+      - ./loan-service:/app
+
+  gateway-service:
+    build: ./gateway-service
+    container_name: gateway_service
+    ports:
+      - "13005:13005"
+    depends_on:
+      - user-service
+      - equipment-service
+      - loan-service
+    restart: unless-stopped
+
+
+volumes:
+  postgres_data:

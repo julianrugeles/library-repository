@@ -1,0 +1,97 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+*.pkl
+*.pyc
+*.log
+
+# Entorno Virtual
+env/
+venv/
+ENV/
+.venv/
+env.bak/
+venv.bak/
+
+# Dependencias / Cache
+*.egg-info/
+.eggs/
+*.egg
+dist/
+build/
+pip-wheel-metadata/
+
+# Configuración del IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Docker / Containers
+*.pid
+*.seed
+docker-compose.override.yml
+*.bak
+*.tmp
+*.log
+*.tar
+.docker/
+**/.env
+
+# Base de datos
+*.db
+*.sqlite3
+postgres_data/
+pgdata/
+data/
+tmp/
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Credenciales / Variables
+.env
+.env.*
+secrets/
+config/secrets.yml
+*.pem
+*.key
+
+# Compilados y binarios
+*.so
+*.dll
+*.exe
+*.bin
+*.o
+*.a
+*.lib
+
+# Tests
+.coverage
+htmlcov/
+.tox/
+.pytest_cache/
+nosetests.xml
+coverage.xml
+.cache/
+
+# Documentación generada
+docs/_build/
+site/
+
+# Otros
+__pypackages__/
+*.bak
+*.orig
+*.rej
+
+# Microservicios
+user-service/__pycache__/
+equipment-service/__pycache__/
+loan-service/__pycache__/
+gateway/__pycache__/

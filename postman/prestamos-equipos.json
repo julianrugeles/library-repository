@@ -1,0 +1,92 @@
+{
+  "info": {
+    "name": "Equipment Service",
+    "_postman_id": "a92a8f50-1f0c-4c31-8f8c-9f9ad9d04800",
+    "description": "Colección para probar los endpoints del Equipment Service (puerto 13002)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get All Equipment",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:13002/equipment",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "13002",
+          "path": ["equipment"]
+        }
+      }
+    },
+    {
+      "name": "Get Equipment by ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:13002/equipment/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "13002",
+          "path": ["equipment", "1"]
+        }
+      }
+    },
+    {
+      "name": "Create Equipment",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Sensor de humedad\",\n  \"type\": \"sensor\",\n  \"status\": \"available\",\n  \"description\": \"Sensor DHT22 para medir humedad y temperatura\",\n  \"available\": true\n}"
+        },
+        "url": {
+          "raw": "http://localhost:13002/equipment",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "13002",
+          "path": ["equipment"]
+        }
+      }
+    },
+    {
+      "name": "Update Equipment",
+      "request": {
+        "method": "PUT",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"status\": \"in_use\",\n  \"available\": false\n}"
+        },
+        "url": {
+          "raw": "http://localhost:13002/equipment/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "13002",
+          "path": ["equipment", "1"]
+        }
+      }
+    },
+    {
+      "name": "Delete Equipment",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:13002/equipment/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "13002",
+          "path": ["equipment", "1"]
+        }
+      }
+    }
+  ]
+}
